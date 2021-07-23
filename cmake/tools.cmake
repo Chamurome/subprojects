@@ -70,7 +70,7 @@ function(get_sources DIR OUTPUT)
     set(RESULT "")
     
     if(IS_DIRECTORY ${DIR})
-        file(GLOB RESULT CONFIGURE_DEPENDS "${DIR}/*.cpp" "${DIR}/*.cxx" "${DIR}/*.c")
+        file(GLOB_RECURSE RESULT LIST_DIRECTORIES false CONFIGURE_DEPENDS "${DIR}/*.cpp" "${DIR}/*.cxx" "${DIR}/*.c")
     endif(IS_DIRECTORY ${DIR})
 
     set("${OUTPUT}" ${RESULT} PARENT_SCOPE)
@@ -84,7 +84,7 @@ function(get_headers DIR OUTPUT)
     set(RESULT "")
     
     if(IS_DIRECTORY ${DIR})
-        file(GLOB RESULT CONFIGURE_DEPENDS "${DIR}/*.hpp" "${DIR}/*.hxx" "${DIR}/*.h")
+        file(GLOB_RECURSE RESULT LIST_DIRECTORIES false CONFIGURE_DEPENDS "${DIR}/*.hpp" "${DIR}/*.hxx" "${DIR}/*.h")
     endif(IS_DIRECTORY ${DIR})
 
     set("${OUTPUT}" ${RESULT} PARENT_SCOPE)

@@ -19,7 +19,7 @@
 function(target_attributes NAME)
     set(options)
     set(singles ROOT TYPE INC_DIR SRC_DIR INC_FILES SRC_FILES INC_SUFFIX ALIAS)
-    set(multiples LIBRARIES)
+    set(multiples LIBRARIES INCLUDES)
 
     string(TOUPPER ${NAME} ID)
     cmake_parse_arguments(${ID} "${options}" "${singles}" "${multiples}" ${ARGN} )
@@ -69,6 +69,7 @@ function(target_attributes NAME)
     set(ID                      ${ID}                   PARENT_SCOPE)
     set("${ID}_SRC_DIR"         "${${ID}_SRC_DIR}"      PARENT_SCOPE)
     set("${ID}_INC_DIR"         "${${ID}_INC_DIR}"      PARENT_SCOPE)
+    set("${ID}_INCLUDES"        "${${ID}_INCLUDES}"      PARENT_SCOPE)
 
 endfunction(target_attributes)
 
@@ -163,8 +164,6 @@ function(config_interface NAME)
         INTERFACE 
             "${${ID}_INC_DIR}"
     )
-    
-
 endfunction(config_interface NAME)
 
 # configura cualquiera de los tres anteriores

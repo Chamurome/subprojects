@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(SHOW_INFO FALSE CACHE BOOL "" FORCE)
+set(SHOW_INFO TRUE CACHE BOOL "" FORCE)
 
 list(APPEND CMAKE_MODULE_PATH  "${CMAKE_SOURCE_DIR}/cmake")
  
